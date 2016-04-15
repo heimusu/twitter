@@ -6,7 +6,7 @@
         </div>
         <div class='col md-9'>
             <ul class='tweet_ul'>
-                <li class='tweet_li radius-10'  each='{list}'>
+                <li class='tweet_li radius-10'  each='{list}' onclick="{loadTweet}">
                     <p style='float:left;'>{number}</p>
                     <!--
                     <p  style='text-align:center;'>{tweet}</p>
@@ -49,5 +49,19 @@
             {  "number" : "9",  "user_id" : "1",  "tweet" : "スマートフォンが出てきて、我々にもチャンスはあると思っています。また新しい「よーい、ドン」が始まったんです。我々はこの２年で、会社をスマートフォン企業に入れ替えました。いま年商１６００億のうちの１０００億はスマートフォン。そこでトップになれる可能性があるなと。",  "tweet_id" : "1431887245",  },
             {  "number" : "10",  "user_id" : "1",  "tweet" : "人生はクローズアップで見れば悲劇　ロングショットで見れば喜劇 byチャーリー・チャップリン",  "tweet_id" : "1431668630",  },
         ];
+
+        var self = this;
+        loadTweet(){
+            request.get('http://api.beaut.asia/v1/stores').end(function(err,res){
+            //request.get('https://api.github.com/users/heimusu').end(function(err,res){
+                self.data = res.body;
+                this.data = self.data;
+            });
+            console.log(data);
+        }
+
+        deleyLoad(){
+            setTimeout('this.loadTweet()',1500);
+        }
     </script>
 </tweet>
