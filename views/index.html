@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Twitter</title>
+        <link rel='stylesheet' href="/bower_components/skyblue/css/skyblue.min.css">
+    </head>
+
+    <body>
+        {{tagTopbar | safe}}
+        {{tagTweetForm | safe}}
+        {{tagTweet | safe}}
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/superagent/1.2.0/superagent.js'></script>
+        <script>
+            var request = window.superagent;
+        </script>
+        <script src='https://cdn.jsdelivr.net/riot/2.3/riot.min.js'></script>
+        <script src='topBar.js'></script>
+        <script src='tweetForm.js'></script>
+        <script src='tweet.js'></script>
+        <script>
+            riot.mount('*');
+        </script>
+        <!--
+        <script src='helloWorld.js'></script>
+        <script>
+            riot.mount('*', {firstName: '{{firstName}}', init: '{{init}}'});
+        </script>
+        -->
+        <script>
+    </body>
+
+</html>

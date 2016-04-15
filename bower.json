@@ -1,0 +1,20 @@
+{
+  "name": "training2",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "heimusu <heimusu@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skyblue": "^1.0.4"
+  }
+}
