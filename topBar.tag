@@ -37,11 +37,14 @@
                 <span class="icon-home" style='margin:5px;'>home</span>
             </a>
         </li>
+        <!-- DMボタン -->
+        <!--
         <li class='top_li'>
             <a href=''>
                 <span class='icon-mail' style='margin:5px;'>DM</span>
             </a>
         </li>
+        -->
         <li class='top_li'>
             <a href=''>
                 <span class='icon-settings' style='margin:5px;'>Setting</span>

@@ -1,13 +1,17 @@
 <tweet>
     <div class='row'>
-        <div class='col md-2 profile_wrapper radius-10'>
-            <p>profile</p>
+        <div class='col md-2 profile_wrapper radius-10' style='background-color:#EEEEEE;'>
+            <p><h5>UserName</h5></p>
+            <p><h6>UserId</h6></p>
         </div>
-        <div class='col md-10'>
+        <div class='col md-9'>
             <ul class='tweet_ul'>
-                <li class='tweet_li'  each='{list}'>
-                    <span style='float:left;'>{number}</span>
+                <li class='tweet_li radius-10'  each='{list}'>
+                    <p style='float:left;'>{number}</p>
+                    <!--
                     <p  style='text-align:center;'>{tweet}</p>
+                    -->
+                    <p style="text-align:left;">{tweet}</p>
                 </li>
             </ul>
         </div>
