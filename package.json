@@ -17,8 +17,9 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
+    "api-mock": "^0.3.2",
     "gulp": "^3.9.1",
-    "protagonist": "^1.2.6",
-    "gulp-aglio": "0.0.10"
+    "gulp-aglio": "0.0.10",
+    "protagonist": "^1.2.6"
   }
 }
