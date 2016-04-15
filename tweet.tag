@@ -1,11 +1,16 @@
 <tweet>
-    <div>
-        <ul class='tweet_ul'>
-            <li class='tweet_li'  each='{list}'>
-                <span style='float:left;'>{number}</span>
-                <p  style='text-align:center;'>{tweet}</p>
-            </li>
-        </ul>
+    <div class='row'>
+        <div class='col md-2 profile_wrapper radius-10'>
+            <p>profile</p>
+        </div>
+        <div class='col md-10'>
+            <ul class='tweet_ul'>
+                <li class='tweet_li'  each='{list}'>
+                    <span style='float:left;'>{number}</span>
+                    <p  style='text-align:center;'>{tweet}</p>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <style>
@@ -21,6 +26,10 @@
         }
         .tweet_li:hover{
             background-color: #EEEEEE;
+        }
+        .profile_wrapper{
+            background-color: #FFFFFF;
+            /*box-shadow: 1px 1px 1px 1px;*/
         }
     </style>
     <script>

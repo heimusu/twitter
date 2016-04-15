@@ -47,10 +47,13 @@
                 <span class='icon-settings' style='margin:5px;'>Setting</span>
             </a>
         </li>
+        <!-- 検索フォーム -->
+        <!--
         <li style='display:block; text-align:right;'>
             <input class='form-control' type='text' style='width:20%;'>
             <button class='btn' style="margin:10px;">検索</button>
         </li>
+        -->
     </ul>
 
 
