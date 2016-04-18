@@ -19,7 +19,8 @@
     <script src='https://cdn.jsdelivr.net/riot/2.3/riot.min.js'></script>
     <script>
         var request = window.superagent;
-        request.get('http://localhost:4000')
+        var endpoint = 'http://localhost:4000';
+        request.get(endpoint)
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
             .end(function(err, res) {

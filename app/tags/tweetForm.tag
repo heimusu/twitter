@@ -11,7 +11,7 @@
             var tweet = document.getElementsByName('tweet')[0].value;
 
             //送信
-            request.post('http://localhost:4000/tweet')
+            request.post(endpoint + '/tweet')
                 .send({text: tweet})
                 .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
                 .set('Content-Type', 'application/json')

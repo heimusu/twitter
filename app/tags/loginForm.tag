@@ -12,7 +12,7 @@
             var password = document.getElementsByName('password')[0].value;
 
             //送信
-            request.post('http://localhost:4000/login')
+            request.post(endpoint + '/login')
                 .send({name: username, password: password})
                 .set('Content-Type', 'application/json')
                 .end(function(err, res) {
