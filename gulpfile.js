@@ -7,11 +7,11 @@ var aglio = require('gulp-aglio');
 
 
 gulp.task('riot', function(){
-    gulp.src('*.tag')
+    gulp.src('app/tags/*.tag')
         .pipe(riot({
             compact: true
         }))
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest('public/assets/javascript'));
 });
 
 gulp.task('docs', function () {
