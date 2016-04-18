@@ -48,7 +48,7 @@
 
         <!-- ユーザー作成ページ -->
         <li class='top_li'>
-            <a class='active' href='/newUser'>
+            <a class='active' href='/signup'>
                 <span class="icon-add-user" style='margin:5px;'>registration</span>
             </a>
         </li>
