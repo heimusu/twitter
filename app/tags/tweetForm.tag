@@ -12,17 +12,17 @@
 
             //送信
             request.post('http://localhost:4000/tweet')
-            .send({text: tweet})
-            .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
-            .set('Content-Type', 'application/json')
-            .end(function(err, res) {
-                if (err || !res.ok) {
-                    alert('Oh no! error');
-                } else {
-                    alert('success!');
-                    console.log(res);
-                }
-            });
+                .send({text: tweet})
+                .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
+                .set('Content-Type', 'application/json')
+                .end(function(err, res) {
+                    if (err || !res.ok) {
+                        alert('Oh no! error');
+                    } else {
+                        alert('success!');
+                        console.log(res);
+                    }
+                });
         }
     </script>
 

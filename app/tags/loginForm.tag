@@ -13,16 +13,16 @@
 
             //送信
             request.post('http://localhost:4000/login')
-            .send({name: username, password: password})
-            .set('Content-Type', 'application/json')
-            .end(function(err, res) {
-                if (err || !res.ok) {
-                    alert('Oh no! error');
-                } else {
-                    alert('success!');
-                    Cookies.set('access_token', res.body.data.token);
-                }
-            });
+                .send({name: username, password: password})
+                .set('Content-Type', 'application/json')
+                .end(function(err, res) {
+                    if (err || !res.ok) {
+                        alert('Oh no! error');
+                    } else {
+                        alert('success!');
+                        Cookies.set('access_token', res.body.data.token);
+                    }
+                });
         }
     </script>
 </loginForm>
