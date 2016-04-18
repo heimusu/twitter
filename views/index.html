@@ -20,7 +20,7 @@
     <script>
         var request = window.superagent;
         var endpoint = 'http://localhost:4000';
-        request.get(endpoint)
+        request.get(endpoint + '/')
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
             .end(function(err, res) {
