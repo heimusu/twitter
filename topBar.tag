@@ -37,20 +37,26 @@
                 <span class="icon-home" style='margin:5px;'>home</span>
             </a>
         </li>
+        <!-- DMボタン -->
+        <!--
         <li class='top_li'>
             <a href=''>
                 <span class='icon-mail' style='margin:5px;'>DM</span>
             </a>
         </li>
+        -->
         <li class='top_li'>
             <a href=''>
                 <span class='icon-settings' style='margin:5px;'>Setting</span>
             </a>
         </li>
+        <!-- 検索フォーム -->
+        <!--
         <li style='display:block; text-align:right;'>
             <input class='form-control' type='text' style='width:20%;'>
             <button class='btn' style="margin:10px;">検索</button>
         </li>
+        -->
     </ul>
 
 
