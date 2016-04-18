@@ -18,7 +18,13 @@
                 .end(function(err, res) {
                     if (err || !res.ok) {
                         alert('Oh no! error');
-                    } else {
+                    }
+                    // else if(セッション認証切れ){
+                    //     alert('セッションが期限切れです');
+                    //     Cookies.expire('access_token');
+                    //     window.location.href('/login');
+                    // }
+                    else {
                         location.reload();
                     }
                 });
