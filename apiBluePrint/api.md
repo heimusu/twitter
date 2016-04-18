@@ -119,17 +119,23 @@
       }
     }
 
+
 ## follow [/follow]
-### create following relation[POST]
+### フォローする [POST]
++ Request
+  + Headers
+      Content-Type: application/json
+      Authorization: Bearer xxxx
 
-+ Parameters
-    + token(string) - access token
-    + userId(string) - userId
+  + body
+      {
+        "fromUserId": 123456,
+        "toUserId": 1245678
+      }
 
-+ Response 200 (application/json)
-
++ Response 201 (application/json)
     + Body
     {
-        "result":[
-        ]
+      "result": true,
     }
+
