@@ -1,13 +1,15 @@
+var tagBasePath = __dirname + '/app/tags';
+
 var express = require('express');
 var swig = require('swig');
 var riot = require('riot');
 var request = require('superagent');
 //tags
-var hello = require('./helloWorld.tag');
-var topBar = require('./topBar.tag');
-var tweetForm = require('./tweetForm.tag');
-var tweet = require('./tweet.tag');
-var loginForm = require('./loginForm.tag');
+var hello = require(tagBasePath + '/helloWorld.tag');
+var topBar = require(tagBasePath + '/topBar.tag');
+var tweetForm = require(tagBasePath + '/tweetForm.tag');
+var tweet = require(tagBasePath + '/tweet.tag');
+var loginForm = require(tagBasePath + '/loginForm.tag');
 
 var app = express();
 

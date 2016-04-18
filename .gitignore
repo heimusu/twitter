@@ -161,7 +161,7 @@ bower_components
 .bower-tmp
 
 ### public js ###
-./public/*.js
+public/assets/javascript
 
 ### api.html ###
-./views/api.html
+views/api.html
