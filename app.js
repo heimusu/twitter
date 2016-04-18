@@ -25,10 +25,13 @@ app.get('/', function(req,res){
     var tagTweetForm = riot.render(tweetForm);
     var tagTweet = riot.render(tweet);
     res.render('index', {tagTopbar:tagTopbar, tagTweetForm:tagTweetForm, tagTweet:tagTweet});
-    //var tagOutput = riot.render(hello, {firstName:startingName, init:init});
-    //res.render("index", {tagContent:tagOutput, firstName: startingName, init: init});
 });
 
-app.listen(3000,function(){
+app.get('/apiblueprint', function(req,res){
+    res.render('api.html');
+});
+
+
+app.listen(3000, function(){
     console.log('working!');
 });
