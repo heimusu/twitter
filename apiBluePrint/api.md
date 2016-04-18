@@ -69,7 +69,7 @@
         "text": "test_tweet"
       }
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
   + Body
       {
         "result": true
@@ -111,7 +111,7 @@
       }
     }
 
-## register [/register]
+## ユーザ登録 [/register]
 ### ユーザ登録 [POST]
 + Request
   + Headers
@@ -124,7 +124,7 @@
       "password": "Passw0rd"
     }
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
   + Body
     {
       "result": true,
@@ -134,7 +134,7 @@
     }
 
 
-## follow [/follow]
+## フォロー [/follow]
 ### フォローする [POST]
 + Request
   + Headers
