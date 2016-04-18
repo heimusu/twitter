@@ -76,6 +76,20 @@
       }
 
 # Group ユーザ
+## ユーザ情報 [/user/{userName}]
+### ユーザ情報取得 [GET]
++ Parameters
+  + userName: CA16Tech (required) - 固有のユーザ名
+
++ Request
+  + Headers
+      Content-Type: application/json
+      Authorization: Bearer xxxx
+
++ Response 200 (application/json)
+  + Body
+      {
+        "result": true,
 ## login [/login]
 ### ログイン [POST]
 + Request
