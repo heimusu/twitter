@@ -33,7 +33,7 @@
     <!-- navigation bar -->
     <ul class='top_ul'>
         <li class='top_li'>
-            <a class='active' href='#'>
+            <a class='active' href='/'>
                 <span class="icon-home" style='margin:5px;'>home</span>
             </a>
         </li>

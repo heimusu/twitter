@@ -1,5 +1,4 @@
 <tweet>
-    <span>{opts.name}</span>
     <div class='row'>
         <div class='col md-2 profile_wrapper radius-10' style='background-color:#EEEEEE;'>
             <p><h5>UserName</h5></p>
@@ -7,12 +6,12 @@
         </div>
         <div class='col md-9'>
             <ul class='tweet_ul'>
-                <li class='tweet_li radius-10'  each='{list}' onclick="{loadTweet}">
-                    <p style='float:left;'>{number}</p>
+                <li class='tweet_li radius-10'  each='{opts.data}' onclick="{loadTweet}">
+                    <!-- <p style='float:left;'>{number}</p> -->
                     <!--
                     <p  style='text-align:center;'>{tweet}</p>
                     -->
-                    <p style="text-align:left;">{tweet}</p>
+                    <p style="text-align:left;">{body}</p>
                 </li>
             </ul>
         </div>
@@ -50,6 +49,6 @@
             {  "number" : "9",  "user_id" : "1",  "tweet" : "スマートフォンが出てきて、我々にもチャンスはあると思っています。また新しい「よーい、ドン」が始まったんです。我々はこの２年で、会社をスマートフォン企業に入れ替えました。いま年商１６００億のうちの１０００億はスマートフォン。そこでトップになれる可能性があるなと。",  "tweet_id" : "1431887245",  },
             {  "number" : "10",  "user_id" : "1",  "tweet" : "人生はクローズアップで見れば悲劇　ロングショットで見れば喜劇 byチャーリー・チャップリン",  "tweet_id" : "1431668630",  },
         ];
-        console.log(opts.data);
+        // console.log(opts.data);
     </script>
 </tweet>
