@@ -1,4 +1,4 @@
-riot.tag2('tweet', '<div class="row"><div class="col md-2 profile_wrapper radius-10" style="background-color:#EEEEEE;"><p><h5>UserName</h5></p><p><h6>UserId</h6></p></div><div class="col md-9"><ul class="tweet_ul"><li class="tweet_li radius-10" each="{list}" onclick="{loadTweet}"><p style="float:left;">{number}</p><p style="text-align:left;">{tweet}</p></li></ul></div></div>', '.tweet_ul{ list-style-type: none; } .tweet_li{ display: block; border-bottom:solid; margin:5px; border-bottom-style: outset; } .tweet_li:hover{ background-color: #EEEEEE; } .profile_wrapper{ background-color: #FFFFFF; }', '', function(opts) {
+riot.tag2('tweet', '<span>{opts.name}</span><div class="row"><div class="col md-2 profile_wrapper radius-10" style="background-color:#EEEEEE;"><p><h5>UserName</h5></p><p><h6>UserId</h6></p></div><div class="col md-9"><ul class="tweet_ul"><li class="tweet_li radius-10" each="{list}" onclick="{loadTweet}"><p style="float:left;">{number}</p><p style="text-align:left;">{tweet}</p></li></ul></div></div>', '.tweet_ul{ list-style-type: none; } .tweet_li{ display: block; border-bottom:solid; margin:5px; border-bottom-style: outset; } .tweet_li:hover{ background-color: #EEEEEE; } .profile_wrapper{ background-color: #FFFFFF; }', '', function(opts) {
         this.list = [
             {  "number" : "1",  "user_id" : "1",  "tweet" : "良い時期にしがらみに負けていると、それが後々おかしなことになる原因となる",  "tweet_id" : "1458414329",  },
             {  "number" : "2",  "user_id" : "1",  "tweet" : "なんで眼帯してると誇らしげなの？",  "tweet_id" : "1437678435",  },
@@ -11,18 +11,5 @@ riot.tag2('tweet', '<div class="row"><div class="col md-2 profile_wrapper radius
             {  "number" : "9",  "user_id" : "1",  "tweet" : "スマートフォンが出てきて、我々にもチャンスはあると思っています。また新しい「よーい、ドン」が始まったんです。我々はこの２年で、会社をスマートフォン企業に入れ替えました。いま年商１６００億のうちの１０００億はスマートフォン。そこでトップになれる可能性があるなと。",  "tweet_id" : "1431887245",  },
             {  "number" : "10",  "user_id" : "1",  "tweet" : "人生はクローズアップで見れば悲劇　ロングショットで見れば喜劇 byチャーリー・チャップリン",  "tweet_id" : "1431668630",  },
         ];
-
-        var self = this;
-        this.loadTweet = function(){
-            request.get('http://api.beaut.asia/v1/stores').end(function(err,res){
-
-                self.data = res.body;
-                this.data = self.data;
-            });
-            console.log(data);
-        }.bind(this)
-
-        this.deleyLoad = function(){
-            setTimeout('this.loadTweet()',1500);
-        }.bind(this)
+        console.log(opts.data);
 });
