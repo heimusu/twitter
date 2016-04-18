@@ -69,11 +69,43 @@
         "text": "test_tweet"
       }
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
   + Body
       {
         "result": true
       }
+
+## tweet詳細 [/tweet/{tweet_id}]
+### tweet詳細取得 [GET]
++ Parameters
+  + tweet_id: 1458414329 (required) - ツイートID
+
++ Request
+  + Headers
+      Content-Type: application/json
+      Authorization: Bearer xxxx
+
++ Response 200 (application/json)
+  + Body
+      {
+        "result": true,
+        "tweet_id": 1458414329,
+        "user_id": 1,
+        "username": "test_user",
+        "body": "良い時期にしがらみに負けていると、それが後々おかしなことになる原因となる",
+        "created_at": "2016-04-18 00:00:00"
+      }
+
+### tweet削除 [DELETE]
++ Parameters
+  + tweet_id: 1458414329 (required) - ツイートID
+
++ Request
+  + Headers
+      Content-Type: application/json
+      Authorization: Bearer xxxx
+
++ Response 204 (application/json)
 
 # Group ユーザ
 ## ユーザ情報 [/user/{userName}]
@@ -90,6 +122,17 @@
   + Body
       {
         "result": true,
+        "user_id": 123,
+        "name": "ca_16",
+        "screen_name": "CA16Tech",
+        "profile_image": "http://nekogazou.com/wp-content/uploads/2013/03/727.jpg",
+        "background_image": "http://nekogazou.com/wp-content/uploads/2013/03/top15.jpg",
+        "tweets_count": 1234,
+        "followers_count": 20,
+        "friends_count": 100,
+        "favorite_count": 5
+      }
+
 ## login [/login]
 ### ログイン [POST]
 + Request
@@ -111,7 +154,7 @@
       }
     }
 
-## register [/register]
+## ユーザ登録 [/register]
 ### ユーザ登録 [POST]
 + Request
   + Headers
@@ -124,7 +167,7 @@
       "password": "Passw0rd"
     }
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
   + Body
     {
       "result": true,
@@ -134,7 +177,7 @@
     }
 
 
-## follow [/follow]
+## フォロー [/follow]
 ### フォローする [POST]
 + Request
   + Headers
