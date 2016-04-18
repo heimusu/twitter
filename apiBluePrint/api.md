@@ -75,26 +75,28 @@
         "result": true
       }
 
+# Group ユーザ
+## login [/login]
+### ログイン [POST]
++ Request
+  + Headers
+      Content-Type: application/json
 
+  + Body
+    {
+      "name": "ca_16",
+      "password": "Passw0rd"
+    }
 
 + Response 200 (application/json)
+  + Body
+    {
+      "result": true,
+      "data": {
+        "token": "LbQqzSurrmB1E0g8UpLZ62LxJhgxFdtS"
+      }
+    }
 
-    + Body
-        {
-            "result":[
-                "data":[
-                    "token": string
-                ]
-            ]
-        }
-
-## timeline [/]
-### get timeline [GET]
-
-+ Parameters
-    + token(string) - user token
-
-+ Request 200 (application/json)
 
     + Body
     {
