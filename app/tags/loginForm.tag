@@ -19,8 +19,8 @@
                     if (err || !res.ok) {
                         alert('Oh no! error');
                     } else {
-                        alert('success!');
                         Cookies.set('access_token', res.body.data.token);
+                        window.location.href = '/';
                     }
                 });
         }
