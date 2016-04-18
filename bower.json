@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "skyblue": "^1.0.4"
+    "skyblue": "^1.0.4",
+    "cookies-js": "^1.2.2"
   }
 }
