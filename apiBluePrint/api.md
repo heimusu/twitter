@@ -90,6 +90,17 @@
   + Body
       {
         "result": true,
+        "user_id": 123,
+        "name": "ca_16",
+        "screen_name": "CA16Tech",
+        "profile_image": "http://nekogazou.com/wp-content/uploads/2013/03/727.jpg",
+        "background_image": "http://nekogazou.com/wp-content/uploads/2013/03/top15.jpg",
+        "tweets_count": 1234,
+        "followers_count": 20,
+        "friends_count": 100,
+        "favorite_count": 5
+      }
+
 ## login [/login]
 ### ログイン [POST]
 + Request
