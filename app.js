@@ -27,6 +27,11 @@ app.get('/', function(req,res){
     res.render('index', {tagTopbar:tagTopbar, tagTweetForm:tagTweetForm, tagTweet:tagTweet});
 });
 
+app.get('/login', function(req, res){
+    var tagTopbar = riot.render(topBar);
+    res.render('login', {tagTopBar:tagTopbar});
+});
+
 app.get('/apiblueprint', function(req,res){
     res.render('api.html');
 });
