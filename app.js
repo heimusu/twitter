@@ -7,6 +7,7 @@ var hello = require('./helloWorld.tag');
 var topBar = require('./topBar.tag');
 var tweetForm = require('./tweetForm.tag');
 var tweet = require('./tweet.tag');
+var loginForm = require('./loginForm.tag');
 
 var app = express();
 
@@ -29,7 +30,8 @@ app.get('/', function(req,res){
 
 app.get('/login', function(req, res){
     var tagTopbar = riot.render(topBar);
-    res.render('login', {tagTopBar:tagTopbar});
+    var tagLoginForm = riot.render(loginForm);
+    res.render('login', {tagTopBar:tagTopbar, tagLoginForm:tagLoginForm});
 });
 
 app.get('/apiblueprint', function(req,res){
