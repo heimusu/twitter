@@ -96,6 +96,17 @@
         "created_at": "2016-04-18 00:00:00"
       }
 
+### tweet削除 [DELETE]
++ Parameters
+  + tweet_id: 1458414329 (required) - ツイートID
+
++ Request
+  + Headers
+      Content-Type: application/json
+      Authorization: Bearer xxxx
+
++ Response 204 (application/json)
+
 # Group ユーザ
 ## ユーザ情報 [/user/{userName}]
 ### ユーザ情報取得 [GET]
