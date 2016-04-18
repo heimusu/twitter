@@ -97,30 +97,26 @@
       }
     }
 
+## register [/register]
+### ユーザ登録 [POST]
++ Request
+  + Headers
+    Content-Type: application/json
 
-    + Body
+  + Body
     {
-        "token": "string",
+      "name": "ca_16",
+      "screenName": "CA16Tech",
+      "password": "Passw0rd"
     }
 
-
 + Response 200 (application/json)
-
-    + Body
+  + Body
     {
-        "result":[
-            "data":[
-                "tweet_id": string,
-                "user_id": string,
-                "username": string,
-                "text": string,
-                "retweet": string,
-                "photos": string,
-                "mentionUserId": string,
-                "mentionTweetid": string,
-                "time": string
-                ]
-        ]
+      "result": true,
+      "data": {
+        "token": "LbQqzSurrmB1E0g8UpLZ62LxJhgxFdtS"
+      }
     }
 
 ## follow [/follow]
