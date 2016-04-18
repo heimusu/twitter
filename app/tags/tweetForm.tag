@@ -19,8 +19,7 @@
                     if (err || !res.ok) {
                         alert('Oh no! error');
                     } else {
-                        alert('success!');
-                        console.log(res);
+                        location.reload();
                     }
                 });
         }

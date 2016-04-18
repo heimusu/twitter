@@ -20,15 +20,29 @@
     <script>
         var request = window.superagent;
         var endpoint = 'http://localhost:4000';
+        // TL取得処理
         request.get(endpoint + '/')
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
             .end(function(err, res) {
-                console.log(res.body.tweets);
+                // console.log(res.body.tweets);
                 var data = res.body.tweets;
                 riot.mount('tweet', {
                     data: data
                 })
+            })
+        // ユーザーデータ取得処理
+        // memo:キャッシュからユーザーネームが取得できる処理を前に挟まないといけない
+        var username = 'CA16Tech';
+        request.get(endpoint + '/user/' + username)
+            .set('Content-Type', 'application/json')
+            .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
+            .end(function(err, res) {
+                console.log(res.body);
+                // var data = res.body.tweets;
+                // riot.mount('user', {
+                //     data: data
+                // })
             })
     </script>
     <script src='assets/javascript/topBar.js'></script>
