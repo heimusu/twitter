@@ -75,6 +75,27 @@
         "result": true
       }
 
+## tweet詳細 [/tweet/{tweet_id}]
+### tweet詳細取得 [GET]
++ Parameters
+  + tweet_id: 1458414329 (required) - ツイートID
+
++ Request
+  + Headers
+      Content-Type: application/json
+      Authorization: Bearer xxxx
+
++ Response 200 (application/json)
+  + Body
+      {
+        "result": true,
+        "tweet_id": 1458414329,
+        "user_id": 1,
+        "username": "test_user",
+        "body": "良い時期にしがらみに負けていると、それが後々おかしなことになる原因となる",
+        "created_at": "2016-04-18 00:00:00"
+      }
+
 # Group ユーザ
 ## ユーザ情報 [/user/{userName}]
 ### ユーザ情報取得 [GET]
