@@ -162,3 +162,6 @@ bower_components
 
 ### public js ###
 ./public/*.js
+
+### api.html ###
+./views/api.html
