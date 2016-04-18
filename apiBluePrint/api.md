@@ -57,49 +57,24 @@
         ]
       }
 
-## login [/login]
-### user login [POST]
+## tweet [/tweet]
+### tweet投稿 [POST]
++ Request
+  + Headers
+      Content-Type: application/json
+      Authorization: Bearer xxxx
 
-+ Parameters
-    + name(string) - user name
-    + password(string) - user password
-
-+ Request 200 (application/json)
-
-    + Body
-        {
-            "name": "string",
-            "password": "string"
-        }
-
+  + Body
+      {
+        "text": "test_tweet"
+      }
 
 + Response 200 (application/json)
+  + Body
+      {
+        "result": true
+      }
 
-    + Body
-        {
-            "result":[
-                "data":[
-                    "token": string
-                ]
-            ]
-        }
-
-## register [/register]
-### new user create [POST]
-
-+ Parameters
-    + name(string) - user name
-    + password(string) - user password
-    + screenname(string) - user screenname
-
-+ Request 200 (application/json)
-
-    + Body
-        {
-            "name": "string",
-            "password": "string"
-            "screenname": "string"
-        }
 
 
 + Response 200 (application/json)
