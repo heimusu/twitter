@@ -159,3 +159,6 @@ bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
+
+### public js ###
+./public/*.js
