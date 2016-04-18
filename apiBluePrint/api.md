@@ -139,3 +139,16 @@
       "result": true,
     }
 
+### アンフォローする [DELETE]
++ Request
+  + Headers
+      Content-Type: application/json
+      Authorization: Bearer xxxx
+
+  + body
+      {
+        "fromUserId": 123456,
+        "toUserId": 1245678
+      }
+
++ Response 204
