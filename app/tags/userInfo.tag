@@ -1,6 +1,6 @@
 <userInfo>
     <div class='row'>
-        <div class='col md-3 profile_wrapper' style="margin-top: 20px;">
+        <div class='col md-3 profile_wrapper' style="margin-top: 60px;">
             <img src={opts.data.profile_image} style='padding-top:10px; margin-left:5px;'>
             <h3 style='text-align:center;'>@{opts.data.name}</h3>
             <h4 style='text-align:center;'>{opts.data.screen_name}</h4>

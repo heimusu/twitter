@@ -1,7 +1,7 @@
 <!--ツイート入力フォーム -->
 <tweetForm>
     <div class='inputForm' style='text-align:center;'>
-        <input class='form-control' type='text' id='tweet' name='tweet' style='width:40%;' maxlength="140" placeholder='今何してる？'>
+        <input class='form-control' type='text' id='tweet' name='tweet' style='width:40%; margin-top:60px;' maxlength="140" placeholder='今何してる？'>
         <button class='btn' style="margin:10px;" onclick="tweet()">ツイート</button>
     </div>
 

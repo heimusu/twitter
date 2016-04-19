@@ -1,6 +1,6 @@
 <signUpForm>
     <div class='inputForm' style='text-align:center;'>
-        <input class='form-control' type='text' name='username' id='username' style='width:20%; margin:10px;' placeholder='ユーザーネーム'>
+        <input class='form-control' type='text' name='username' id='username' style='width:20%; margin:10px;  margin-top:60px;' placeholder='ユーザーネーム'>
         <input class='form-control' type='password' name='password' id='password' style='width:20%; margin:10px;' placeholder='パスワード'>
         <input class='form-control' type='text' name='screenname' id='screenname' style='width:20%; margin:10px;' placeholder='ニックネーム'>
         <button class='btn' style="margin:10px;" onclick="signUpButton()">SignUp</button>
