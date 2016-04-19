@@ -41,7 +41,7 @@ app.get('/signup', function(req, res){
     var tagTopBar = riot.render(topBar);
     var tagSignUpForm = riot.render(signUpForm);
     res.render('signup', {tagTopBar:tagTopBar, tagSignUpForm:tagSignUpForm});
-})
+});
 
 app.get('/apiblueprint', function(req,res){
     res.render('api.html');
