@@ -7,7 +7,6 @@
 
     <script>
         tweet = function(){
-            // console.log(document.getElementsByName('tweet')[0].value);
             var tweet = document.getElementsByName('tweet')[0].value;
 
             //送信
@@ -17,7 +16,7 @@
                 .set('Content-Type', 'application/json')
                 .end(function(err, res) {
                     if (err) {
-                        alert('Oh no! error');
+                        alert('Oh no! tweet error.');
                     }
                     // else if(セッション認証切れ){
                     //     alert('セッションが期限切れです');
