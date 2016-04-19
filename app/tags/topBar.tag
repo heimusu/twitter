@@ -62,8 +62,8 @@
         </li>
         -->
         <li class='top_li'>
-            <a href=''>
-                <span class='icon-settings' style='margin:5px;'>Setting</span>
+            <a href='/user'>
+                <span class='icon-settings' style='margin:5px;'>MyPage</span>
             </a>
         </li>
         <!-- 検索フォーム -->

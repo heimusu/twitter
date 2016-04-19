@@ -11,6 +11,8 @@
 
 <body>
     <topbar></topbar>
+    <userInfo></userinfo>
+    <userTweets></userTweets>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/superagent/1.2.0/superagent.js'></script>
     <script src="/bower_components/cookies-js/dist/cookies.min.js"></script>
@@ -18,32 +20,34 @@
     <script>
         var request = window.superagent;
         var endpoint = 'http://localhost:4000';
-        // TL取得処理
+        //TL取得処理
+        //ユーザーのツイート一覧を取得出来ると良い
         request.get(endpoint + '/')
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
             .end(function(err, res) {
                 // console.log(res.body.tweets);
                 var data = res.body.tweets;
-                riot.mount('tweet', {
+                riot.mount('userTweets', {
                     data: data
                 })
             })
+
         // ユーザーデータ取得処理
         // memo:キャッシュからユーザーネームが取得できる処理を前に挟まないといけない
-        var username = 'CA16Tech';
-        request.get(endpoint + '/user/' + username)
+        var userid = '1458414329';
+        request.get(endpoint + '/user/' + userid)
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
             .end(function(err, res) {
-                console.log(res.body);
-                // var data = res.body.tweets;
-                // riot.mount('user', {
-                //     data: data
-                // })
+                riot.mount('userInfo', {
+                    data: res.body
+                })
             })
     </script>
     <script src='assets/javascript/topBar.js'></script>
+    <script src='assets/javascript/userInfo.js'></script>
+    <script src='assets/javascript/userTweets.js'></script>
     <script>
         riot.mount('*');
     </script>
