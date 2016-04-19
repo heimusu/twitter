@@ -10,6 +10,7 @@ var topBar = require(tagBasePath + '/topBar.tag');
 var tweetForm = require(tagBasePath + '/tweetForm.tag');
 var tweet = require(tagBasePath + '/tweet.tag');
 var loginForm = require(tagBasePath + '/loginForm.tag');
+var signUpForm = require(tagBasePath + '/signUpForm.tag');
 
 var app = express();
 
@@ -34,6 +35,12 @@ app.get('/login', function(req, res){
     var tagTopbar = riot.render(topBar);
     var tagLoginForm = riot.render(loginForm);
     res.render('login', {tagTopBar:tagTopbar, tagLoginForm:tagLoginForm});
+});
+
+app.get('/signup', function(req, res){
+    var tagTopBar = riot.render(topBar);
+    var tagSignUpForm = riot.render(signUpForm);
+    res.render('signup', {tagTopBar:tagTopBar, tagSignUpForm:tagSignUpForm});
 });
 
 app.get('/apiblueprint', function(req,res){

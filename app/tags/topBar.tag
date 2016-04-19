@@ -37,6 +37,22 @@
                 <span class="icon-home" style='margin:5px;'>home</span>
             </a>
         </li>
+
+        <!-- ログインページ -->
+        <li class='top_li'>
+            <a class='active' href='/login'>
+                <span class="icon-users" style='margin:5px;'>login</span>
+            </a>
+        </li>
+
+
+        <!-- ユーザー作成ページ -->
+        <li class='top_li'>
+            <a class='active' href='/signup'>
+                <span class="icon-add-user" style='margin:5px;'>registration</span>
+            </a>
+        </li>
+
         <!-- DMボタン -->
         <!--
         <li class='top_li'>

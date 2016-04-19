@@ -1,19 +1,21 @@
-<loginForm>
+<signUpForm>
     <div class='inputForm' style='text-align:center;'>
         <input class='form-control' type='text' name='username' id='username' style='width:20%; margin:10px;' placeholder='ユーザーネーム'>
         <input class='form-control' type='password' name='password' id='password' style='width:20%; margin:10px;' placeholder='パスワード'>
-        <button class='btn' style="margin:10px;" onclick="loginButton()">ログイン</button>
+        <input class='form-control' type='text' name='screenname' id='screenname' style='width:20%; margin:10px;' placeholder='ニックネーム'>
+        <button class='btn' style="margin:10px;" onclick="signUpButton()">SignUp</button>
     </div>
 
     <script>
-        loginButton = function () {
+        signUpButton = function () {
             //ユーザー名とパスワードの取得
             var username = document.getElementsByName('username')[0].value;
             var password = document.getElementsByName('password')[0].value;
+            var screenname = document.getElementsByName('screenname')[0].value;
 
             //送信
-            request.post(endpoint + '/login')
-                .send({name: username, password: password})
+            request.post(endpoint + '/register')
+                .send({name: username, password: password, screenName: screenname})
                 .set('Content-Type', 'application/json')
                 .end(function(err, res) {
                     if (err) {
@@ -25,4 +27,4 @@
                 });
         }
     </script>
-</loginForm>
+</signUpForm>
