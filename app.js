@@ -9,6 +9,8 @@ var hello = require(tagBasePath + '/helloWorld.tag');
 var topBar = require(tagBasePath + '/topBar.tag');
 var tweetForm = require(tagBasePath + '/tweetForm.tag');
 var tweet = require(tagBasePath + '/tweet.tag');
+var tUserInfo = require(tagBasePath + '/tweet_userInfo.tag');
+var timeLine = require(tagBasePath + '/tweet_timeLine.tag');
 var loginForm = require(tagBasePath + '/loginForm.tag');
 var signUpForm = require(tagBasePath + '/signUpForm.tag');
 
@@ -23,12 +25,12 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req,res){
-    var startingName = 'Susan';
-    var init = 'aaaa';
     var tagTopbar = riot.render(topBar);
     var tagTweetForm = riot.render(tweetForm);
     var tagTweet = riot.render(tweet);
-    res.render('index', {tagTopbar:tagTopbar, tagTweetForm:tagTweetForm, tagTweet:tagTweet});
+    var tag_tUserInfo = riot.render(tUserInfo);
+    var tag_timeLine = riot.render(timeLine);
+    res.render('index', {tagTopbar:tagTopbar, tagTweetForm:tagTweetForm, tagTweet:tagTweet, tag_tUserInfo: tag_tUserInfo, tag_timeLine: tag_timeLine});
 });
 
 app.get('/login', function(req, res){
