@@ -1,14 +1,21 @@
 <!--ツイート入力フォーム -->
 <tweetForm>
     <div class='inputForm' style='text-align:center;'>
-        <input class='form-control' type='text' id='tweet' name='tweet' style='width:40%; margin-top:60px;' maxlength="140" placeholder='今何してる？'>
+        <input class='form-control' type='text' id='tweet' name='tweet' style='width:40%; margin-top:60px;' maxlength="140" placeholder='今何してる？' onkeyup='checkValue()'>
         <button class='btn' style="margin:10px;" onclick="tweet()">ツイート</button>
+        <span> { count }</span>
     </div>
 
     <script>
+        var self = this;
+        this.count = 140;
+        checkValue = function(){
+            self.count = 140 - (document.getElementsByName('tweet')[0].value.length);
+            self.update();
+        }
+
         tweet = function(){
             var tweet = document.getElementsByName('tweet')[0].value;
-
             //送信
             request.post(endpoint + '/tweet')
                 .send({text: tweet})
