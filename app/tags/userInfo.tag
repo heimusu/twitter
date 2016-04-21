@@ -20,10 +20,9 @@
 
     <script>
         follow = function () {
-            this.fromUserId = 123456; //ログインしているユーザーを取得する操作が必要
-            this.toUserId = opts.data.user_id;
+            var toUserId = opts.data.user_id;
             request.post(endpoint + '/postFollow')
-                .send({fromUserId: this.fromUserId, toUserId: this.toUserId})
+                .send({toUserId: toUserId})
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
                 .end(function (err, res) {

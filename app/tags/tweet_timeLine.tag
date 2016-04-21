@@ -3,7 +3,7 @@
         <tweetForm></tweetForm>
         <ul class='tweet_ul'>
             <li class='tweet_li radius-10' each='{opts.data}'>
-                <p><span>{username}</span><span>@{user_id}</span></p>
+                <p><span>{name}</span><span>@{user_id}</span></p>
                 <p style="text-align:left;">
                     {body}
                     <span><span class="icon-star"></span></span>

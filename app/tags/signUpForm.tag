@@ -22,7 +22,8 @@
                         alert('Oh no! error');
                     } else {
                         Cookies.set('access_token', res.body.data.token);
-                        window.location.href = '/';
+                        //window.location.href = '/';
+                        alert('success!');
                     }
                 });
         }

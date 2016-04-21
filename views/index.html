@@ -28,8 +28,7 @@
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
             .end(function(err, res) {
-                // console.log(res.body.tweets);
-                var data = res.body.tweets;
+                var data = res.body.data;
                 riot.mount('timeLine', {
                     data: data
                 })

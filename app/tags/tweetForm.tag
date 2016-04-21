@@ -19,8 +19,8 @@
             //送信
             request.post(endpoint + '/postTweet')
                 .send({text: tweet})
-                .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
-                .set('Content-Type', 'application/json')
+                // .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
+                // .set('Content-Type', 'application/json')
                 .end(function(err, res) {
                     if (err) {
                         alert('Oh no! tweet error.');
@@ -31,7 +31,8 @@
                     //     window.location.href('/login');
                     // }
                     else {
-                        location.reload();
+                        console.log('success');
+                        //location.reload();
                     }
                 });
         }

@@ -5,6 +5,9 @@ var swig = require('swig');
 var riot = require('riot');
 //var request = require('superagent');
 var agent = require('request');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var cookie = require('cookie');
 //tags
 var hello = require(tagBasePath + '/helloWorld.tag');
 var topBar = require(tagBasePath + '/topBar.tag');
@@ -17,6 +20,8 @@ var signUpForm = require(tagBasePath + '/signUpForm.tag');
 
 var app = express();
 
+app.use(bodyParser.json());
+app.use(cookieParser());
 app.engine('html', swig.renderFile);
 
 app.set('view engine', 'html');
@@ -59,23 +64,26 @@ app.get('/apiblueprint', function(req,res){
 //TLゲット
 app.get('/getTweet', function(req, res){
     //通信部
-    var cookie = req.headers.cookie;
+    var cookies= cookie.parse(req.headers.cookie);
     var headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + cookie
+        'Authorization': 'Bearer ' + cookies.access_token
     }
 
     var options = {
-      //url: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
-      url:'http://localhost:4000/',
+      url: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
+      //url:'http://localhost:4000/',
       method:'GET',
       headers:headers,
       json: true
     };
+    console.dir(headers);
 
     agent.get(options, function(error, response, body){
       if (!error && response.statusCode == 200) {
+        console.log('timeline load success!');
         res.json(body);
+        res.end();
       } else {
         console.log('error: '+ response.statusCode);
         console.log(response);
@@ -90,16 +98,12 @@ app.post('/postRegister', function(req, res){
         'Content-Type': 'application/json'
     };
     var options = {
-    //   uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
-      url:'http://localhost:4000/register',
+      uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/register',
+      //url:'http://localhost:4000/register',
       method:'POST',
       headers:headers,
       json: true,
-      body: JSON.stringify({
-          name:'test',
-          password:'testtesttest',
-          screenName:'test'
-      })
+      body: req.body
     };
 
     agent.post(options, function(error, response, body){
@@ -114,25 +118,22 @@ app.post('/postRegister', function(req, res){
 
 //フォロー
 app.post('/postFollow', function(req, res){
-    var cookie = req.headers.cookie;
+    var cookies= cookie.parse(req.headers.cookie);
     //通信部
     var headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + cookie
+        'Authorization': 'Bearer ' + cookies.access_token
     };
     var options = {
-    //   uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
-      url:'http://localhost:4000/follow',
+      uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/follow',
+      //url:'http://localhost:4000/follow',
       method:'POST',
       headers:headers,
       json: true,
-      body: JSON.stringify({
-          fromUserId:'123456',
-          toUserId:'1245678'
-      })
+      body: res.body
     };
 
-    agent.get(options, function(error, response, body){
+    agent.post(options, function(error, response, body){
       if (!error && response.statusCode == 201) {
         res.json(body);
         res.end();
@@ -145,23 +146,25 @@ app.post('/postFollow', function(req, res){
 
 //ツイート
 app.post('/postTweet', function(req, res){
-    var cookie = req.headers.cookie;
+    var cookies= cookie.parse(req.headers.cookie);
+    // console.dir(cookies);
+    // console.log("あいうえお" + cookies.access_token);
+    console.dir(headers);
     //通信部
     var headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + cookie
+        'Authorization': 'Bearer ' + cookies.access_token
     };
+
     var options = {
-    //   uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
-      url:'http://localhost:4000/tweet',
+      uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/tweet',
+    //   url:'http://localhost:4000/tweet',
       method:'POST',
       headers:headers,
       json: true,
-      body: JSON.stringify({
-          text:'test_tweet'
-      })
+      body: req.body
     };
-
+    console.dir(headers);
     agent.post(options, function(error, response, body){
       if (!error && response.statusCode == 201) {
         res.json(body);
@@ -199,22 +202,19 @@ app.get('/getUser', function(req, res){
     });
 });
 
-//ツイート
+//ログイン
 app.post('/userLogin', function(req, res){
     //通信部
     var headers = {
         'Content-Type': 'application/json',
     };
     var options = {
-    //   uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
-      url:'http://localhost:4000/login',
+      uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/login',
+    //   url:'http://localhost:4000/login',
       method:'POST',
       headers:headers,
       json: true,
-      body: JSON.stringify({
-          name:'name',
-          password:'password'
-      })
+      body: res.body
     };
 
     agent.post(options, function(error, response, body){
