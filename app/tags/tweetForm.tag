@@ -17,7 +17,7 @@
         tweet = function(){
             var tweet = document.getElementsByName('tweet')[0].value;
             //送信
-            request.post(endpoint + '/tweet')
+            request.post(endpoint + '/postTweet')
                 .send({text: tweet})
                 .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
                 .set('Content-Type', 'application/json')

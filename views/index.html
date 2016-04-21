@@ -20,9 +20,11 @@
     <script src='https://cdn.jsdelivr.net/riot/2.3/riot.min.js'></script>
     <script>
         var request = window.superagent;
-        var endpoint = 'http://localhost:4000';
+        var endpoint = 'http://localhost:3000';
+        //var endpoint = 'http://ec2-52-69-8-188.ap-northeast-1.compute.amazonaws.com';
+        //var endpoint = 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com';
         // TL取得処理
-        request.get(endpoint + '/')
+        request.get(endpoint + '/getTweet')
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
             .end(function(err, res) {
@@ -34,8 +36,8 @@
             });
         // ユーザーデータ取得処理
         // memo:キャッシュからユーザーネームが取得できる処理を前に挟まないといけない
-            var userid = '1458414329';
-            request.get(endpoint + '/user/' + userid)
+            //var userName = 'CA16Tech';
+            request.get(endpoint + '/getUser')
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
                 .end(function(err, res) {

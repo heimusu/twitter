@@ -14,7 +14,7 @@
             var screenname = document.getElementsByName('screenname')[0].value;
 
             //送信
-            request.post(endpoint + '/register')
+            request.post(endpoint + '/postRegister')
                 .send({name: username, password: password, screenName: screenname})
                 .set('Content-Type', 'application/json')
                 .end(function(err, res) {

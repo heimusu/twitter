@@ -1,6 +1,6 @@
 <tUserInfo>
     <div class='col md-1'></div>
-    <div class='col md-3 profile_wrapper radius-10' style='margin-top:60px; margin-left:-100px;'>
+    <div class='col md-3 profile_wrapper radius-10' style='margin-top:60px; margin-left:-90px;'>
         <div class='imgCenter'>
             <img class='profImage' src={opts.data.profile_image} style='padding-top:20px; margin-left:5px;'>
         </div>
