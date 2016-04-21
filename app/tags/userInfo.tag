@@ -1,6 +1,6 @@
 <userInfo>
     <div class='row'>
-        <div class='col md-3 profile_wrapper' style="margin-top: 20px;">
+        <div class='col md-3 profile_wrapper' style="margin-top: 60px;">
             <img src={opts.data.profile_image} style='padding-top:10px; margin-left:5px;'>
             <h3 style='text-align:center;'>@{opts.data.name}</h3>
             <h4 style='text-align:center;'>{opts.data.screen_name}</h4>
@@ -22,7 +22,7 @@
         follow = function () {
             this.fromUserId = 123456; //ログインしているユーザーを取得する操作が必要
             this.toUserId = opts.data.user_id;
-            request.post(endpoint + '/follow')
+            request.post(endpoint + '/postFollow')
                 .send({fromUserId: this.fromUserId, toUserId: this.toUserId})
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
@@ -40,8 +40,31 @@
                 }
             });
         }
+
+        unFollow = function () {
+            this.fromUserId = 123456; //ログインしているユーザーを取得する操作が必要
+            this.toUserId = opts.data.user_id;
+            request.del(endpoint + '/follow')
+                .send({fromUserId: this.fromUserId, toUserId: this.toUserId})
+                .set('Content-Type', 'application/json')
+                .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
+                .end(function (err, res) {
+                if (err) {
+                    alert('Oh no! error');
+                }
+                // else if(セッション認証切れ){
+                //     alert('セッションが期限切れです');
+                //     Cookies.expire('access_token');
+                //     window.location.href('/login');
+                // }
+                else {
+                    location.reload();
+                }
+            });
+        }
+
         //ユーザーのツイートを取得，userTweetsコンポーネントに渡す
-        request.get(endpoint + '/')
+        request.get(endpoint + '/getTweet')
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
             .end(function(err, res) {

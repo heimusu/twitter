@@ -1,5 +1,5 @@
 <userTweets>
-    <div class='col md-9' style='margin-top:20px;'>
+    <div class='col md-9' style='margin-top:60px;'>
         <ul class='tweet_ul'>
             <li class='tweet_li radius-10'  each='{opts.data}'>
                 <p>{username}</p>
