@@ -32,7 +32,7 @@
                     // }
                     else {
                         console.log('success');
-                        //location.reload();
+                        location.reload();
                     }
                 });
         }

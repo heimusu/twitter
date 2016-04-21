@@ -4,13 +4,13 @@
         <div class='imgCenter'>
             <img class='profImage' src={opts.data.profile_image} style='padding-top:20px; margin-left:5px;'>
         </div>
-        <h4 style='text-align:center;'>@{opts.data.name}</h4>
-        <h5 style='text-align:center;'>{opts.data.screen_name}</h5>
+        <h4 style='text-align:center;'>{opts.data.screen_name}</h4>
+        <h5 style='text-align:center;'>@{opts.data.name}</h5>
         <ul style='text-align:center; list-style-type: none;'>
-            <li style='display: block;'>tweets:{opts.data.tweets_count}</li>
-            <li style='display: block;'>follow:{opts.data.friends_count}</li>
-            <li style='display: block;'>follower:{opts.data.followers_count}</li>
-            <li style='display: block;'>favorite:{opts.data.favorite_count}</li>
+            <li style='display: block; font-size:110%; border-bottom:solid; border-bottom-style: outset;'>tweets    {opts.data.tweets_count}</li>
+            <li style='display: block; font-size:110%; border-bottom:solid; border-bottom-style: outset;'>follow    {opts.data.friends_count}</li>
+            <li style='display: block; font-size:110%; border-bottom:solid; border-bottom-style: outset;'>follower    {opts.data.followers_count}</li>
+            <li style='display: block; font-size:110%; border-bottom:solid; border-bottom-style: outset;'>favorite    {opts.data.favorite_count}</li>
         </ul>
     </div>
 
@@ -47,6 +47,10 @@
             filter:blur(5px);
             -webkit-filter: blur(5px);
             -moz-filter: blur(5px);
+        }
+
+        .profile_wrapper li:hover{
+            background-color: #EEEEEE;
         }
 
     </style>
