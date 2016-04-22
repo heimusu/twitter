@@ -15,7 +15,7 @@
 
             //送信
             request.post(endpoint + '/postRegister')
-                .send({name: username, password: password, screenName: screenname})
+                .send({name: username, password: password, screen_name: screenname})
                 .set('Content-Type', 'application/json')
                 .end(function(err, res) {
                     if (err) {

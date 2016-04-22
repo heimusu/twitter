@@ -70,13 +70,24 @@ app.get('/getTweet', function(req, res){
         'Authorization': 'Bearer ' + cookies.access_token
     }
 
-    var options = {
-      url: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
-      //url:'http://localhost:4000/',
-      method:'GET',
-      headers:headers,
-      json: true
-    };
+    if(req.headers.userId != undefined){
+        var options = {
+          url: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
+          //url:'http://localhost:4000/',
+          method:'GET',
+          headers:headers,
+          json: true
+        };
+    }
+    else{
+        var options = {
+          url: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
+          //url:'http://localhost:4000/',
+          method:'GET',
+          headers:headers,
+          json: true
+        };
+    }
     console.dir(headers);
 
     agent.get(options, function(error, response, body){
@@ -147,8 +158,6 @@ app.post('/postFollow', function(req, res){
 //ツイート
 app.post('/postTweet', function(req, res){
     var cookies= cookie.parse(req.headers.cookie);
-    // console.dir(cookies);
-    // console.log("あいうえお" + cookies.access_token);
     console.dir(headers);
     //通信部
     var headers = {
@@ -177,27 +186,40 @@ app.post('/postTweet', function(req, res){
 
 //ユーザー情報ゲット
 app.get('/getUser', function(req, res){
+    var cookies= cookie.parse(req.headers.cookie);
+    console.dir(req.body);
+    var userId = req.headers.userId;
     //通信部
-    var cookie = req.headers.cookie;
     var headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + cookie
+        'Authorization': 'Bearer ' + cookies.access_token
     }
-    var userName = 'CA16Tech';
-    var options = {
-    //   uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/',
-      url:'http://localhost:4000/user/'+userName ,
-      method:'GET',
-      headers:headers,
-      json: true
-    };
+
+    if(userId != undefined){
+        var options = {
+          uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/user/' + userId,
+        //   url:'http://localhost:4000/user/'+userName ,
+          method:'GET',
+          headers:headers,
+          json: true
+        };
+    }
+
+    else{
+        var options = {
+          uri: 'http://teamg-twitter-elb-1649660177.ap-northeast-1.elb.amazonaws.com/user/',
+          method:'GET',
+          headers:headers,
+          json: true
+        };
+    }
 
     agent.get(options, function(error, response, body){
       if (!error && response.statusCode == 200) {
         res.json(body);
       } else {
         console.log('error: '+ response.statusCode);
-        console.log(response);
+        //console.log(response);
       }
     });
 });
@@ -214,7 +236,7 @@ app.post('/userLogin', function(req, res){
       method:'POST',
       headers:headers,
       json: true,
-      body: res.body
+      body: req.body
     };
 
     agent.post(options, function(error, response, body){
