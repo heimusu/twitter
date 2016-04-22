@@ -18,10 +18,13 @@ var timeLine = require(tagBasePath + '/tweet_timeLine.tag');
 var loginForm = require(tagBasePath + '/loginForm.tag');
 var signUpForm = require(tagBasePath + '/signUpForm.tag');
 
+var corser = require("corser");
+
 var app = express();
 
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(corser.create());
 app.engine('html', swig.renderFile);
 
 app.set('view engine', 'html');
@@ -130,6 +133,8 @@ app.post('/postRegister', function(req, res){
 //フォロー
 app.post('/postFollow', function(req, res){
     var cookies= cookie.parse(req.headers.cookie);
+    // console.dir(req.body);
+    var to_user_id = parseInt(req.body.to_user_id,10);
     //通信部
     var headers = {
         'Content-Type': 'application/json',
@@ -141,7 +146,7 @@ app.post('/postFollow', function(req, res){
       method:'POST',
       headers:headers,
       json: true,
-      body: res.body
+      body: {to_user_id: to_user_id}
     };
 
     agent.post(options, function(error, response, body){
@@ -150,7 +155,7 @@ app.post('/postFollow', function(req, res){
         res.end();
       } else {
         console.log('error: '+ response.statusCode);
-        console.log(response);
+        //console.log(response);
       }
     });
 });
@@ -187,8 +192,8 @@ app.post('/postTweet', function(req, res){
 //ユーザー情報ゲット
 app.get('/getUser', function(req, res){
     var cookies= cookie.parse(req.headers.cookie);
-    console.dir(req.body);
-    var userId = req.headers.userId;
+    // console.dir(req.body);
+    var userId = req.headers.userid;
     //通信部
     var headers = {
         'Content-Type': 'application/json',

@@ -27,7 +27,7 @@
                 .set('userId', location.search.substring(1).split('=')[1])
                 .end(function(err, res) {
                     riot.mount('userInfo', {
-                        data: res.body
+                        data: res.body.data
                     });
                 });
         }

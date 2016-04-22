@@ -10,7 +10,7 @@
                 <li style='display: block;'>follower:{opts.data.followers_count}</li>
                 <li style='display: block;'>favorite:{opts.data.favorite_count}</li>
             </ul>
-            <div class='button_wrapper' show="{opts.data.is_follow}">
+            <div class='button_wrapper' show={!opts.data.is_follow}>
                 <button class='btn' style="margin:10px;" onclick="follow()">フォロー</button>
             </div>
         </div>
@@ -20,9 +20,9 @@
 
     <script>
         follow = function () {
-            var toUserId = opts.data.user_id;
+            var toUserId = opts.data.id;
             request.post(endpoint + '/postFollow')
-                .send({toUserId: toUserId})
+                .send({to_user_id: toUserId})
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
                 .end(function (err, res) {
@@ -35,7 +35,8 @@
                 //     window.location.href('/login');
                 // }
                 else {
-                    location.reload();
+                    console.log('success!');
+                    //location.reload();
                 }
             });
         }
