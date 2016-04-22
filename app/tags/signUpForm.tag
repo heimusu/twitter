@@ -15,14 +15,15 @@
 
             //送信
             request.post(endpoint + '/postRegister')
-                .send({name: username, password: password, screenName: screenname})
+                .send({name: username, password: password, screen_name: screenname})
                 .set('Content-Type', 'application/json')
                 .end(function(err, res) {
                     if (err) {
                         alert('Oh no! error');
                     } else {
                         Cookies.set('access_token', res.body.data.token);
-                        window.location.href = '/';
+                        //window.location.href = '/';
+                        alert('success!');
                     }
                 });
         }

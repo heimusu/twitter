@@ -10,7 +10,7 @@
                 <li style='display: block;'>follower:{opts.data.followers_count}</li>
                 <li style='display: block;'>favorite:{opts.data.favorite_count}</li>
             </ul>
-            <div class='button_wrapper'>
+            <div class='button_wrapper' show={!opts.data.is_follow}>
                 <button class='btn' style="margin:10px;" onclick="follow()">フォロー</button>
             </div>
         </div>
@@ -20,10 +20,9 @@
 
     <script>
         follow = function () {
-            this.fromUserId = 123456; //ログインしているユーザーを取得する操作が必要
-            this.toUserId = opts.data.user_id;
+            var toUserId = opts.data.id;
             request.post(endpoint + '/postFollow')
-                .send({fromUserId: this.fromUserId, toUserId: this.toUserId})
+                .send({to_user_id: toUserId})
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
                 .end(function (err, res) {
@@ -36,16 +35,16 @@
                 //     window.location.href('/login');
                 // }
                 else {
-                    location.reload();
+                    console.log('success!');
+                    //location.reload();
                 }
             });
         }
 
         unFollow = function () {
-            this.fromUserId = 123456; //ログインしているユーザーを取得する操作が必要
             this.toUserId = opts.data.user_id;
             request.del(endpoint + '/follow')
-                .send({fromUserId: this.fromUserId, toUserId: this.toUserId})
+                .send({toUserId: this.toUserId})
                 .set('Content-Type', 'application/json')
                 .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
                 .end(function (err, res) {
@@ -67,8 +66,8 @@
         request.get(endpoint + '/getTweet')
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + Cookies.get('access_token'))
+            .set('userId', location.search.substring(1).split('=')[1])
             .end(function(err, res) {
-                // console.log(res.body.tweets);
                 var data = res.body.tweets;
                 riot.mount('userTweets', {
                     data: data
